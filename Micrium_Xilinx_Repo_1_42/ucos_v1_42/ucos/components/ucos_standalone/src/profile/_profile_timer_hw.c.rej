@@ -1,0 +1,7 @@
+diff a/components/ucos_standalone/src/profile/_profile_timer_hw.c b/components/ucos_standalone/src/profile/_profile_timer_hw.c	(rejected hunks)
+@@ -1,4 +0,4 @@
+-// $Id: _profile_timer_hw.c,v 1.1.2.1 2011/05/17 04:37:56 sadanan Exp $
++// $Id: _profile_timer_hw.c,v 1.1.2.1.3011/05/17 04:37:56 sadanan Exp $
+ /******************************************************************************
+ *
+ * Copyright (C) 2004 - 2014 Xilinx, Inc.  All rights reserved.

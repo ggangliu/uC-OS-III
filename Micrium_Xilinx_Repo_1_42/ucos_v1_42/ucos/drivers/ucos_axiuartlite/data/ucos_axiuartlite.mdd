@@ -1,0 +1,28 @@
+#########################################################################################################
+#                                           MICRIUM XSDK REPOSITORY
+#                          (c) Copyright 2014-2015; Micrium, Inc.; Weston, FL
+#
+#               All rights reserved.  Protected by international copyright laws.
+#########################################################################################################
+
+OPTION psf_version = 2.1;
+
+BEGIN driver ucos_axiuartlite
+  OPTION supported_peripherals = (axi_uartlite mdm);
+  OPTION driver_state = ACTIVE;
+  OPTION copyfiles = all;
+  OPTION VERSION = 1.42;
+  OPTION NAME = ucos_axiuartlite;
+  
+  BEGIN INTERFACE ucos_stdin
+    PROPERTY header = dummy.h;
+    FUNCTION name = inbyte, value = dummy;
+  END INTERFACE
+
+  BEGIN INTERFACE ucos_stdout
+    PROPERTY header = dummy.h;
+    FUNCTION name = outbyte, value = dummy;
+  END INTERFACE
+  
+END driver
+

@@ -1,0 +1,58 @@
+
+; Example scatter file for DDR & OCM memory setup on the Zynq ZC702
+
+
+; The memory is divided in three region, two OCM region at the start and end of the address space + 1GB of DRAM.
+; For this example the exception vectors + startup code are located at the start of the address space in DRAM.
+; Executable and data code are located in the DRAM
+; Finally the static page table is inside OCM_1
+      
+;OCM_0 0x00000000 0x30000
+;{   
+
+   
+   
+                                   
+;}
+
+SDRAM 0x01000000 0x3FF00000
+{
+    EXEC +0
+    {
+        startup.o(StartUp +FIRST)
+        * (+RO)
+        * (+RW,+ZI)
+    }
+    
+    ARM_LIB_STACKHEAP  +0 ALIGN 8 EMPTY 0xA000000 {}
+
+    ; IRQ stacks for core 0 - see startup.s
+    IRQ_STACK        +0 ALIGN 8 EMPTY  0x1000*2 {}
+    
+    ; FIQ stacks for core 0 - see startup.s
+    FIQ_STACK        +0 ALIGN 8 EMPTY  0x1000*2 {}
+    
+    ; ABT stacks for core 0 - see startup.s
+    ABT_STACK        +0 ALIGN 8 EMPTY  0x1000*2 {}
+    
+    ; UND stacks for core 0 - see startup.s
+    UND_STACK        +0 ALIGN 8 EMPTY  0x1000*2 {}
+    
+    ; SVC stacks for core 0 - see startup.s
+    SVC_STACK        +0 ALIGN 8 EMPTY  0x1000*2 {}   
+    
+    ; SYS stacks for core 0 - see startup.s
+    SYS_STACK        +0 ALIGN 8 EMPTY  0x1000*2 {}       
+    
+}
+
+OCM_1 0xFFFF0000 0xFE00
+{
+	PAGE_TABLE 0xFFFF0000 EMPTY 0x4000*2
+	{
+	}
+	
+	NET_DESC  +0 ALIGN 32 EMPTY 0x4000
+	{
+	}
+}

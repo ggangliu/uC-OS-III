@@ -1,0 +1,16 @@
+diff a/components/ucos_standalone/src/cortexa9/armcc/boot.S b/components/ucos_standalone/src/cortexa9/armcc/boot.S	(rejected hunks)
+@@ -62,13 +62,13 @@
+ 
+ 
+ 
+ #include "xparameters.h"
+ #include "xil_errata.h"
+ 
+-#define UART_BAUDRATE	115200
++#define UART_BAUDRATE	11.300
+ 
+ 	EXPORT _prestart
+ 	EXPORT _boot
+ 
+ 	IMPORT |Image$$ARM_LIB_STACK$$ZI$$Limit|
+ 	IMPORT |Image$$IRQ_STACK$$ZI$$Limit|

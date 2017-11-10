@@ -1,0 +1,19 @@
+#########################################################################################################
+#                                           MICRIUM XSDK REPOSITORY
+#                             (c) Copyright 2014-2015; Micrium, Inc.; Weston, FL
+#
+#               All rights reserved.  Protected by international copyright laws.
+#########################################################################################################
+
+OPTION psf_version = 2.1;
+
+BEGIN driver ucos_axiintc
+  OPTION supported_peripherals = (axi_intc);
+  OPTION driver_state = ACTIVE;
+  OPTION copyfiles = all;
+  OPTION VERSION = 1.42;
+  OPTION NAME = ucos_axiintc;
+END driver
+
+BEGIN INTERFACE sys_tick
+END INTERFACE
